@@ -4,7 +4,7 @@ A setup script for what Larvel Valet doesn't give you for PHP development.
 ## Needs:
 - A recent Mac
 - [Homebrew](https://brew.sh/)
-- [Valet](https://laravel.com/docs/12.x/valet#installation), [PHP](https://formulae.brew.sh/formula/php), and [Mariadb](https://formulae.brew.sh/formula/php) installed
+- [Valet](https://laravel.com/docs/12.x/valet#installation) installed, with [PHP](https://formulae.brew.sh/formula/php), [Mariadb](https://formulae.brew.sh/formula/php), [Mailpit](https://formulae.brew.sh/formula/mailpit), and [Xdebug](https://xdebug.org/docs/install#pie)
 
 ## Use:
 
@@ -15,16 +15,16 @@ A setup script for what Larvel Valet doesn't give you for PHP development.
 
 - What Valet doesn't, specifically: 
   - Mariadb
-  - Mailhog
+  - Mailpit
   - Xdebug
 
 ## Gives:
 
-Generates a code block you can copy and paste into `.valet-env.php` ([or similar](https://www.julienbourdeau.com/valet-environment-variables-simplify-env-file/)), and shows you where to go for Mailhog's UI and Xdebug's adapter endpoint.
+Generates a code block you can copy and paste into `.valet-env.php` ([or similar](https://www.julienbourdeau.com/valet-environment-variables-simplify-env-file/)), and shows you where to go for Mailpit's UI and Xdebug's adapter endpoint.
 
 ## Notes:
 
-WIP.
+Work in progress.
 
 I made this because Valet Plus is abandoned and archived. I still like Valet the most for setting up PHP development environments. Simply running `valet park` (and `valet secure`) doesn't do enough by itself. 
 

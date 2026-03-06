@@ -1,5 +1,5 @@
 # valet-setup.sh
-A turn-key solution to setup what Larvel Valet doesn't. Faster, easier PHP development.
+A turn-key solution to setup what Laravel Valet doesn't. Faster, easier PHP development.
 
 ## Needs:
 - A recent Mac

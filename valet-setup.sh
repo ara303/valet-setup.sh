@@ -60,6 +60,23 @@ else
     ok "Created database '${DB_NAME}'"
 fi
 
+if mariadb -e "SELECT User FROM mysql.user WHERE User = '${DB_USER}';" -sN 2>/dev/null | grep -q "${DB_USER}"; then
+    warn "User '${DB_USER}' already exists — skipping creation"
+else
+    mariadb -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '';" 2>/dev/null
+    ok "Created user '${DB_USER}'"
+fi
+
+mariadb -e "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${DB_USER}'@'localhost';" 2>/dev/null
+mariadb -e "FLUSH PRIVILEGES;" 2>/dev/null
+ok "Granted privileges on '${DB_NAME}' to '${DB_USER}'"
+
+if mariadb -u "${DB_USER}" -h "${DB_HOST}" -P "${DB_PORT}" -e "SELECT 1;" "${DB_NAME}" &>/dev/null; then
+    ok "Database connection verified"
+else
+    fail "Could not connect to '${DB_NAME}' as '${DB_USER}'"
+fi
+
 # ── Mailpit ──────────────────────────────────────────────────────────────────
 
 info "Checking Mailpit..."

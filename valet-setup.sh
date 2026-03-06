@@ -128,26 +128,28 @@ printf "${BOLD}${GREEN}┌──────────────────
 printf "${BOLD}${GREEN}│  ✔  All services configured                 │${RESET}\n"
 printf "${BOLD}${GREEN}└─────────────────────────────────────────────┘${RESET}\n"
 printf "\n"
-printf "${BOLD}Paste into your .env:${RESET}\n"
+printf "${BOLD}Optionally, paste into .valet-env.php:${RESET}\n"
 printf "${DIM}─────────────────────────────────────────────${RESET}\n"
 
-cat <<ENV
-DB_CONNECTION=mariadb
-DB_HOST=${DB_HOST}
-DB_PORT=${DB_PORT}
-DB_DATABASE=${DB_NAME}
-DB_USERNAME=${DB_USER}
-DB_PASSWORD=
-
-MAIL_MAILER=smtp
-MAIL_HOST=${MAIL_HOST}
-MAIL_PORT=${MAIL_SMTP_PORT}
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS="dev@${DB_NAME}.test"
-MAIL_FROM_NAME="\${APP_NAME}"
-ENV
+cat <<PHP
+<?php
+return [
+    "${DB_NAME}" => [
+        'DB_HOST'           => '${DB_HOST}',
+        'DB_PORT'           => '${DB_PORT}',
+        'DB_DATABASE'       => '${DB_NAME}',
+        'DB_USERNAME'       => '${DB_USER}',
+        'DB_PASSWORD'       => 'null',
+        'MAIL_MAILER'       => 'smtp',
+        'MAIL_HOST'         => '${MAIL_HOST}',
+        'MAIL_PORT'         => '${MAIL_SMTP_PORT}',
+        'MAIL_USERNAME'     => 'null',
+        'MAIL_PASSWORD'     => 'null',
+        'MAIL_ENCRYPTION'   => 'null',
+        'MAIL_FROM_ADDRESS' => 'dev@${DB_NAME}.test',
+    ]
+];
+PHP
 
 printf "${DIM}─────────────────────────────────────────────${RESET}\n"
 printf "\n"

@@ -63,7 +63,7 @@ fi
 if mariadb -e "SELECT User FROM mysql.user WHERE User = '${DB_USER}';" -sN 2>/dev/null | grep -q "${DB_USER}"; then
     warn "User '${DB_USER}' already exists — skipping creation"
 else
-    mariadb -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '';" 2>/dev/null
+    mariadb -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '' REQUIRE NONE;" 2>/dev/null
     ok "Created user '${DB_USER}'"
 fi
 

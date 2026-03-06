@@ -8,7 +8,7 @@ A setup script for what Larvel Valet doesn't give you for PHP development.
 
 ## Use:
 
-1. Copy `valet-setup.sh` into a directory where you've ran `valet park` already.
+1. Copy `valet-setup.sh` in a Valet directory (`valet park`)
 2. Run `bash valet-setup.sh`
 
 ## Does:

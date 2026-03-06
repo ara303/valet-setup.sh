@@ -30,13 +30,13 @@ I made this because Valet Plus is abandoned and archived. I still like Valet the
 
 ## For WordPress:
 
-To use [`wp`](https://github.com/wp-cli/wp-cli) or other CLI stuff like LLMs, you need to manually require `.valet-env.php` in `wp-config.php`. For example:
+To use [`wp`](https://github.com/wp-cli/wp-cli) (or for LLM tool calls), manually require `.valet-env.php` in `wp-config.php` **in addition to** setting your database credentials:
 
 ```php
 $valet_env = __DIR__ . '/.valet-env.php';
 if ( file_exists( $valet_env ) ) {
     $valet_config = require $valet_env;
-    $site_name = basename( __DIR__) ;
+    $site_name = basename( __DIR__);
     if ( isset( $valet_config[$site_name] ) ) {
         foreach ( $valet_config[$site_name] as $key => $value ) {
             $_SERVER[$key] = $value;

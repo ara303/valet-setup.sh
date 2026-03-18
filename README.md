@@ -13,7 +13,7 @@ A turn-key solution to setup what Laravel Valet doesn't. Faster, easier PHP deve
 
 ## Does:
 
-- What Valet doesn't, specifically: 
+What Valet doesn't. Specifically: 
   - Mariadb
   - Mailpit
   - Xdebug

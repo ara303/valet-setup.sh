@@ -9,7 +9,9 @@ A turn-key solution to setup what Laravel Valet doesn't. Faster, easier PHP deve
 ## Use:
 
 1. Copy `valet-setup.sh` in a Valet directory (`valet park`)
-2. Run `bash valet-setup.sh`
+2. Run `bash valet-setup.sh <name>`
+
+_Note_: If no name is given, it defaults to `laravel`.
 
 ## Does:
 

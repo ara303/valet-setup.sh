@@ -34,6 +34,9 @@ I made this because Valet Plus is abandoned and archived. I still like Valet the
 
 To use [`wp`](https://github.com/wp-cli/wp-cli) (or for LLM tool calls), manually require `.valet-env.php`'s values in `wp-config.php` when setting database constants:
 
+> [!CAUTION]
+> Remember to add `.valet-env.php` to `.gitignore`.
+
 ```php
 $valet_env = __DIR__ . '/.valet-env.php';
 if ( file_exists( $valet_env ) ) {

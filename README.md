@@ -62,3 +62,5 @@ define('DB_PASSWORD', $_SERVER['DB_PASSWORD']);
 /** MySQL hostname */
 define('DB_HOST', $_SERVER['DB_HOST']);
 ```
+
+Although Valet registers the contents of `.valet-env.php`'s by default, it only exposes the values stored within to its internal web server's requests. This manual approach allows `wp` to work.
